@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/patrickturricelli/eth/ptss/cmakeQuickStart/build",
+  "command": "/usr/local/bin/i686-w64-mingw32-c++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o CMakeFiles/CMakeProject.dir/main.cpp.o -c /Users/patrickturricelli/eth/ptss/cmakeQuickStart/main.cpp",
+  "file": "/Users/patrickturricelli/eth/ptss/cmakeQuickStart/main.cpp"
+}
+]

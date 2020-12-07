@@ -1,20 +1,28 @@
-#include <iostream>
-#include <cmath>
 #include "simpson_rule.hpp"
-#define _USE_MATH_DEFINES
 
-double my_sin(double x)
+#include <cmath>
+#include <iostream>
+#include <fstream>
+
+double my_sin(double value)
 {
-    return sin(x);
+    return std::sin(value);
 }
+
 int main()
 {
-    int max_bins = 10;
-    int bins = rand();
-    std::cout << "Integral of sin(x) in [0, pi] is " << simpson_rule(0.0, M_PI, bins, my_sin) << "\n";
-    // iterate over an increasing number of bins
-    for (int i = 1; i < max_bins; i++)
+
+    std::cout << "Integrator maximum resolution?" << std::endl;
+    size_t N;
+    std::cin >> N;
+    std::cout << N << std::endl;
+
+    std::ofstream of("data/results.txt");
+    of.precision(15);
+    for (size_t i = 2; i <= N; ++i)
     {
-        std::cout << i << "   " << simpson_rule(0.0, M_PI, i, my_sin) << "\n";
+        of << i << "\t" << integrate(0, M_PI, i, my_sin) << std::endl;
     }
+
+    return 0;
 }

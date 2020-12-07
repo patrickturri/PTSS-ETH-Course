@@ -1,15 +1,16 @@
 #include <iostream>
 
-void mergesort(int *arr, int *temp, int leftStart, int rightEnd);
-void mergeHalves(int *arr, int *temp, int leftStart, int rightEnd);
+long mergesort(int *arr, int *temp, int leftStart, int rightEnd);
+long mergeHalves(int *arr, int *temp, int leftStart, int rightEnd);
+
 int main()
 {
-    int n = 7;
+    int n = 5;
     // std::cout << "Tell me a positive integer n: ";
     // std::cin >> n;
     std::cout << "Random sequence of n numbers: "
               << "\n";
-    int arr[7] = {7, 9, 3, 8, 0, 2, 5};
+    int arr[5] = {2, 1, 3, 1, 2};
     for (int i = 0; i < n; i++)
     {
         // arr[i] = rand() % 10;
@@ -19,7 +20,7 @@ int main()
     std::cout << "Sequence sorted: "
               << "\n";
     int temp[n];
-    mergesort(arr, temp, 0, (sizeof(arr) / sizeof(arr[0]) - 1));
+    std::cout << "Inversions: " << mergesort(arr, temp, 0, (sizeof(arr) / sizeof(arr[0]) - 1)) << "\n";
     for (int i = 0; i < n; i++)
     {
         std::cout << arr[i] << " ";
@@ -28,20 +29,23 @@ int main()
 }
 
 // create a temp array to copy the halves of the original array
-void mergesort(int *arr, int *temp, int leftStart, int rightEnd)
+long mergesort(int *arr, int *temp, int leftStart, int rightEnd)
 {
-    if (leftStart >= rightEnd)
+    long inversions = 0;
+    long middle;
+    if (leftStart < rightEnd)
     {
-        return;
+        middle = (leftStart + rightEnd) / 2;
+        inversions += mergesort(arr, temp, leftStart, middle);
+        inversions += mergesort(arr, temp, middle + 1, rightEnd);
+        inversions += mergeHalves(arr, temp, leftStart, rightEnd);
     }
-    int middle = (leftStart + rightEnd) / 2;
-    mergesort(arr, temp, leftStart, middle);
-    mergesort(arr, temp, middle + 1, rightEnd);
-    mergeHalves(arr, temp, leftStart, rightEnd);
+    return inversions;
 }
 
-void mergeHalves(int *arr, int *temp, int leftStart, int rightEnd)
+long mergeHalves(int *arr, int *temp, int leftStart, int rightEnd)
 {
+    long inversions = 0;
     int leftEnd = (leftStart + rightEnd) / 2;
     int rightStart = leftEnd + 1;
     int size = rightEnd - leftStart + 1;
@@ -49,21 +53,20 @@ void mergeHalves(int *arr, int *temp, int leftStart, int rightEnd)
     int left = leftStart;
     int right = rightStart;
     int index = leftStart;
-
     while (left <= leftEnd && right <= rightEnd)
     {
-        if (arr[left] <= arr[right])
+        if (arr[left] > arr[right])
         {
-            temp[index] = arr[left];
-            index++;
-            left++;
+            inversions += (rightStart - left);
+            temp[index] = arr[right];
+            right++;
         }
         else
         {
-            temp[index] = arr[right];
-            index++;
-            right++;
+            temp[index] = arr[left];
+            left++;
         }
+        index++;
     }
     // adding the remaining elements of the left array to the temp array
     for (int i = left; i <= leftEnd; i++, index++)
@@ -80,4 +83,5 @@ void mergeHalves(int *arr, int *temp, int leftStart, int rightEnd)
     {
         arr[i + leftStart] = temp[i + leftStart];
     }
+    return inversions;
 }

@@ -1,0 +1,53 @@
+The system is: Darwin - 19.3.0 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/local/bin/i686-w64-mingw32-gcc-9.3.0 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "/Users/patrickturricelli/eth/ptss/cmakeQuickStart/build/CMakeFiles/3.18.4/CompilerIdC/a.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/local/bin/i686-w64-mingw32-c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+
+The CXX compiler identification is GNU, found in "/Users/patrickturricelli/eth/ptss/cmakeQuickStart/build/CMakeFiles/3.18.4/CompilerIdCXX/a.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /Users/patrickturricelli/eth/ptss/cmakeQuickStart/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_eb375/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_eb375.dir/build.make CMakeFiles/cmTC_eb375.dir/build
+Building C object CMakeFiles/cmTC_eb375.dir/testCCompiler.c.o
+/usr/local/bin/i686-w64-mingw32-gcc-9.3.0   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o CMakeFiles/cmTC_eb375.dir/testCCompiler.c.o -c /Users/patrickturricelli/eth/ptss/cmakeQuickStart/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_eb375
+/usr/local/Cellar/cmake/3.18.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb375.dir/link.txt --verbose=1
+/usr/local/bin/i686-w64-mingw32-gcc-9.3.0  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_eb375.dir/testCCompiler.c.o -o cmTC_eb375 
+/usr/local/Cellar/mingw-w64/7.0.0_2/toolchain-i686/bin/i686-w64-mingw32-ld: warning: cannot find entry symbol arch_paths_first; defaulting to 0000000000401000
+
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /Users/patrickturricelli/eth/ptss/cmakeQuickStart/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7813c/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_7813c.dir/build.make CMakeFiles/cmTC_7813c.dir/build
+Building CXX object CMakeFiles/cmTC_7813c.dir/testCXXCompiler.cxx.o
+/usr/local/bin/i686-w64-mingw32-c++   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o CMakeFiles/cmTC_7813c.dir/testCXXCompiler.cxx.o -c /Users/patrickturricelli/eth/ptss/cmakeQuickStart/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_7813c
+/usr/local/Cellar/cmake/3.18.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7813c.dir/link.txt --verbose=1
+/usr/local/bin/i686-w64-mingw32-c++  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_7813c.dir/testCXXCompiler.cxx.o -o cmTC_7813c 
+/usr/local/Cellar/mingw-w64/7.0.0_2/toolchain-i686/bin/i686-w64-mingw32-ld: warning: cannot find entry symbol arch_paths_first; defaulting to 0000000000401000
+
+
+
